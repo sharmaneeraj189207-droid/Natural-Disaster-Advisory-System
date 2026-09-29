@@ -1,0 +1,2095 @@
+You are a Principal Full-Stack Engineer, AI Systems Architect, Senior React.js Engineer, Backend Engineer, Database Architect, UI/UX Engineer, Security Engineer, QA Engineer, and Production DevOps Engineer.
+
+You are operating as an autonomous coding agent inside an existing development environment such as Cursor, Claude Code, Replit Agent, or Antigravity Agent.
+
+Your task is to BUILD, TEST, DEBUG, POLISH, AND FINALIZE a complete production-grade web application called:
+
+"NATURAL DISASTER PREDICTION & ADVISORY SYSTEM"
+
+Do not create a conceptual prototype.
+Do not only provide code snippets.
+Do not only explain the architecture.
+Actually inspect the repository, create/modify the required files, install dependencies, implement the application, test it, fix errors, and leave the project in a runnable state.
+
+Do not leave TODOs, fake buttons, placeholder functionality, unfinished API routes, mocked production behavior, or incomplete pages.
+
+If the repository already contains code, inspect it first and preserve/reuse useful existing functionality instead of unnecessarily rewriting the project.
+
+If requirements are ambiguous, make a sensible production-grade engineering decision and continue without asking unnecessary questions.
+
+============================================================
+1. HEADER & SYSTEM PERSONA ROLE
+============================================================
+
+Act as a Principal Full-Stack Engineer, AI Systems Architect, Senior Frontend Engineer, Backend Engineer, PostgreSQL/Supabase Database Architect, Security Engineer, UI/UX Engineer, QA Engineer, and DevOps Engineer.
+
+You are responsible for the complete implementation lifecycle:
+
+- Repository inspection
+- Architecture
+- Frontend
+- Backend
+- Database
+- Authentication
+- AI integration
+- Validation
+- Security
+- Responsive UI
+- Testing
+- Debugging
+- Documentation
+- Production readiness
+
+The final application must be functional, secure, responsive, maintainable, accessible, and deployable.
+
+============================================================
+2. CORE MISSION DIRECTIVE
+============================================================
+
+Build a complete AI-powered Natural Disaster Prediction & Advisory System.
+
+The application must allow authenticated users to:
+
+1. Select a natural disaster category.
+2. Enter geographical information.
+3. Enter environmental and situational information.
+4. Submit the information for AI-assisted analysis.
+5. Receive a structured disaster-risk assessment.
+6. Receive a risk level.
+7. Receive a risk score.
+8. Receive an assessment-confidence score.
+9. See the major risk factors.
+10. See warning indicators.
+11. See protective factors.
+12. Receive immediate safety actions.
+13. Receive preparedness recommendations.
+14. Receive monitoring recommendations.
+15. Receive evacuation/readiness guidance where appropriate.
+16. View important limitations.
+17. Save assessments securely.
+18. View prediction history.
+19. Delete their own prediction records.
+20. View dashboard statistics.
+21. Manage their profile.
+22. Authenticate using Supabase Auth.
+
+The application MUST clearly state that AI-generated results are advisory and are NOT official disaster warnings.
+
+Never represent an AI-generated assessment as a guaranteed prediction.
+
+Never claim that the application replaces:
+
+- Government emergency agencies
+- Meteorological agencies
+- Geological agencies
+- Disaster-management authorities
+- Emergency services
+- Official warning systems
+
+If a user appears to be experiencing an active emergency, the application must prioritize official emergency instructions rather than delaying action for AI analysis.
+
+============================================================
+3. PRODUCT GOAL
+============================================================
+
+Create a professional disaster-management platform demonstrating how:
+
+- React.js
+- Node.js
+- Express.js
+- Supabase PostgreSQL
+- Supabase Authentication
+- Google Gemini AI
+- @google/genai
+- Zod
+- Tailwind CSS
+
+can be combined into a secure AI-assisted natural-disaster advisory application.
+
+Supported disaster categories:
+
+- Earthquake
+- Flood
+- Cyclone / Hurricane / Tropical Storm
+- Landslide
+- Wildfire / Forest Fire
+- Drought
+- Tsunami
+- Volcanic Eruption
+- Extreme Heat
+- Severe Storm / Thunderstorm
+- Avalanche
+- Other Natural Disaster
+
+IMPORTANT:
+
+Unless scientifically validated real-time forecasting datasets are actually integrated, do NOT claim that the application performs real-time scientific disaster forecasting.
+
+The application should describe its result as:
+
+"AI-assisted risk assessment based on the information provided."
+
+Display an appropriate warning such as:
+
+"AI predictions are advisory only. For active emergencies, follow official local authorities and emergency services."
+
+============================================================
+4. MANDATORY FEATURES
+============================================================
+
+IMPLEMENT ALL FEATURES BELOW.
+
+-------------------------
+AUTHENTICATION
+-------------------------
+
+Implement:
+
+- Supabase email/password registration.
+- Supabase login.
+- Logout.
+- Session persistence.
+- Protected routes.
+- Authentication state management.
+- User profile.
+- Proper authentication error handling.
+- Password validation.
+
+Protected routes:
+
+/dashboard
+/predict
+/prediction/:id
+/history
+/profile
+/settings
+
+Unauthenticated users accessing protected routes must be redirected to /login.
+
+-------------------------
+LANDING PAGE
+-------------------------
+
+Create a professional landing page containing:
+
+- Application name.
+- Hero section.
+- Disaster-themed visual design.
+- Product explanation.
+- "Start Prediction" CTA.
+- Supported disaster categories.
+- How the system works.
+- Feature overview.
+- Safety disclaimer.
+- Login button.
+- Register button.
+- Responsive navigation.
+
+-------------------------
+DASHBOARD
+-------------------------
+
+Create an authenticated dashboard showing:
+
+- Welcome/header area.
+- Total assessments.
+- High-risk assessments.
+- Most analyzed disaster.
+- Recent assessment count.
+- Latest assessments.
+- Quick "New Prediction" action.
+- Risk overview.
+
+-------------------------
+PREDICTION FORM
+-------------------------
+
+Create a dynamic prediction form.
+
+General fields:
+
+- Disaster type
+- Country
+- State/Region
+- City/Location
+- Latitude
+- Longitude
+- Observation date/time
+- Temperature
+- Rainfall
+- Humidity
+- Wind speed
+- Population density
+- Infrastructure condition
+- Recent observations
+- Additional notes
+
+The form must dynamically show disaster-specific fields.
+
+EARTHQUAKE:
+
+- Recent seismic activity
+- Magnitude
+- Depth
+- Distance from epicenter
+- Fault proximity
+- Building vulnerability
+
+FLOOD:
+
+- Rainfall last 24 hours
+- Rainfall last 72 hours
+- River level
+- River level status
+- Drainage condition
+- Soil saturation
+- Flood history
+
+CYCLONE:
+
+- Wind speed
+- Pressure
+- Storm direction
+- Distance from coast
+- Rainfall forecast information if supplied
+- Sea condition
+
+LANDSLIDE:
+
+- Slope angle
+- Soil condition
+- Recent heavy rain
+- Ground cracks
+- Vegetation cover
+- Previous landslide
+
+WILDFIRE:
+
+- Vegetation dryness
+- Recent rainfall
+- Temperature
+- Wind speed
+- Humidity
+- Fuel load
+- Active fire signs
+
+DROUGHT:
+
+- Rainfall deficit
+- Soil moisture
+- Reservoir status
+- Groundwater status
+- Crop stress
+
+TSUNAMI:
+
+- Offshore earthquake
+- Earthquake magnitude
+- Earthquake depth
+- Coastal distance
+- Unusual sea-level change
+- Unusual wave activity
+
+VOLCANIC ERUPTION:
+
+- Volcanic activity
+- Tremor activity
+- Gas activity
+- Ground deformation
+- Ash observation
+
+EXTREME HEAT:
+
+- Temperature
+- Feels-like temperature
+- Humidity
+- Heat duration
+- Vulnerable population
+
+AVALANCHE:
+
+- Recent snowfall
+- Snowpack condition
+- Slope angle
+- Wind loading
+- Temperature trend
+- Recent avalanche activity
+
+SEVERE STORM:
+
+- Wind speed
+- Rainfall
+- Lightning activity
+- Hail observation
+- Storm duration
+
+OTHER:
+
+Provide a generic observation form.
+
+-------------------------
+AI ANALYSIS
+-------------------------
+
+When the user submits:
+
+1. Validate frontend input.
+2. Send data to backend.
+3. Authenticate user.
+4. Validate backend request with Zod.
+5. Sanitize/normalize input.
+6. Construct a controlled Gemini request.
+7. Call Gemini from the SERVER ONLY.
+8. Receive structured JSON.
+9. Parse Gemini response.
+10. Validate Gemini response with Zod.
+11. Reject malformed AI output.
+12. Store validated result.
+13. Return the result to frontend.
+14. Render a professional result page.
+
+-------------------------
+PREDICTION RESULT
+-------------------------
+
+Display:
+
+- Disaster type
+- Location
+- Risk level
+- Risk score
+- Confidence score
+- Confidence level
+- Assessment summary
+- Risk factors
+- Warning indicators
+- Protective factors
+- Immediate actions
+- Preparedness actions
+- Monitoring recommendations
+- Evacuation/readiness guidance
+- Official guidance
+- Limitations
+- Timestamp
+
+Risk levels:
+
+LOW
+MODERATE
+HIGH
+VERY_HIGH
+UNKNOWN
+
+Confidence levels:
+
+LOW
+MEDIUM
+HIGH
+
+Risk score:
+
+0-100
+
+Confidence score:
+
+0-100
+
+IMPORTANT:
+
+The risk score is NOT a scientifically calibrated probability.
+
+The confidence score represents confidence in the assessment based on supplied information.
+
+-------------------------
+PREDICTION HISTORY
+-------------------------
+
+Users must be able to:
+
+- View history.
+- Search/filter history.
+- Filter by disaster type.
+- Filter by risk level.
+- Sort newest/oldest.
+- Open individual records.
+- Delete their own records.
+- See timestamps.
+- See location.
+- See disaster category.
+- See risk level.
+
+Users must NEVER access another user's records.
+
+-------------------------
+LOADING / ERROR STATES
+-------------------------
+
+Implement:
+
+- Loading screen.
+- Skeleton loaders.
+- AI analysis loading state.
+- Disabled submit button while processing.
+- API errors.
+- Authentication errors.
+- Validation errors.
+- Empty states.
+- Network errors.
+- Gemini errors.
+- Database errors.
+- Not-found states.
+
+Never expose stack traces or secrets.
+
+============================================================
+5. TECHNOLOGY REQUIREMENTS
+============================================================
+
+Use:
+
+FRONTEND:
+
+- React.js
+- React Router
+- Tailwind CSS
+- Functional components
+- React hooks
+- Accessible semantic HTML
+- Responsive design
+- Lucide React or equivalent icon library
+
+BACKEND:
+
+- Node.js
+- Express.js
+- REST APIs
+- Async/await
+- Centralized error handling
+- Environment-based configuration
+
+DATABASE:
+
+- Supabase PostgreSQL
+- Supabase Auth
+- PostgreSQL UUID
+- JSONB
+- Indexes
+- Foreign keys
+- Row Level Security
+
+AI:
+
+- @google/genai
+- Gemini model configured through environment variable
+- Server-side Gemini calls
+- Structured JSON output
+
+VALIDATION:
+
+- Zod
+
+SECURITY:
+
+- Rate limiting
+- CORS
+- Security headers
+- Input validation
+- Authorization
+- RLS
+- Secret management
+
+STYLING:
+
+- Tailwind CSS
+- Mobile-first design
+- Professional emergency-management visual language
+- Strong contrast
+- Accessible UI
+
+Do NOT call Gemini directly from React.
+
+Do NOT expose GEMINI_API_KEY to the frontend.
+
+============================================================
+6. APPLICATION PAGES / ROUTES
+============================================================
+
+Create:
+
+/
+Landing page
+
+/login
+Login
+
+/register
+Registration
+
+/about
+About the system
+
+/safety
+Safety and limitations
+
+/dashboard
+Authenticated dashboard
+
+/predict
+Prediction form
+
+/prediction/:id
+Prediction details
+
+/history
+Prediction history
+
+/profile
+User profile
+
+/settings
+Settings
+
+/*
+Not-found page
+
+Protected:
+
+/dashboard
+/predict
+/prediction/:id
+/history
+/profile
+/settings
+
+============================================================
+7. USER FLOW
+============================================================
+
+PRIMARY FLOW:
+
+1. User opens landing page.
+2. User clicks Start Prediction.
+3. User is redirected to login if not authenticated.
+4. User logs in/registers.
+5. User enters dashboard.
+6. User clicks New Prediction.
+7. User selects disaster type.
+8. Dynamic fields appear.
+9. User enters location/environment information.
+10. Frontend validates the form.
+11. Backend validates the request.
+12. Backend authenticates the user.
+13. Backend sends controlled request to Gemini.
+14. Gemini returns structured JSON.
+15. Backend validates Gemini output.
+16. Backend saves validated assessment.
+17. Backend returns result.
+18. Frontend displays result.
+19. User can view history.
+20. User can start another assessment.
+
+HISTORY FLOW:
+
+1. User opens /history.
+2. Backend retrieves only the authenticated user's records.
+3. User filters/sorts results.
+4. User opens a record.
+5. User views full assessment.
+6. User can delete their own record.
+
+LOGOUT:
+
+1. User clicks Logout.
+2. Supabase session is terminated.
+3. Client state is cleared.
+4. User is redirected.
+
+============================================================
+8. TARGET DOMAINS & CATEGORIZATION
+============================================================
+
+SEISMIC:
+
+Earthquake and aftershock-related assessment.
+
+Relevant factors:
+
+- Recent seismic activity
+- Magnitude
+- Depth
+- Epicenter distance
+- Fault proximity
+- Building vulnerability
+- Population density
+- Ground conditions
+
+HYDROLOGICAL:
+
+Flood and flash-flood assessment.
+
+Factors:
+
+- Rainfall
+- River level
+- Drainage
+- Soil saturation
+- Terrain
+- Flood history
+- Urbanization
+
+METEOROLOGICAL:
+
+Cyclone, severe storm, thunderstorm, extreme heat.
+
+Factors:
+
+- Temperature
+- Wind
+- Humidity
+- Rainfall
+- Storm observations
+- Atmospheric observations
+
+GEOLOGICAL:
+
+Landslide and volcanic eruption.
+
+Factors:
+
+- Terrain
+- Slope
+- Rainfall
+- Ground movement
+- Soil condition
+- Volcanic activity
+
+ENVIRONMENTAL:
+
+Wildfire and drought.
+
+Factors:
+
+- Temperature
+- Rainfall
+- Humidity
+- Vegetation dryness
+- Soil moisture
+- Wind
+- Reservoir status
+
+MARINE/COASTAL:
+
+Tsunami.
+
+Factors:
+
+- Offshore earthquake
+- Magnitude
+- Depth
+- Sea-level changes
+- Wave activity
+- Coastal proximity
+
+MOUNTAIN/WINTER:
+
+Avalanche.
+
+Factors:
+
+- Snowfall
+- Snowpack
+- Slope
+- Wind loading
+- Temperature
+- Recent avalanche activity
+
+Never fabricate unavailable measurements.
+
+If important information is missing:
+
+- Clearly mark it unavailable.
+- Reduce confidence.
+- Explain the limitation.
+
+============================================================
+9. FORM & ADVISORY CONFIGURATION
+============================================================
+
+Build a reusable dynamic form system.
+
+Use reusable field definitions rather than hardcoding duplicated form logic across components.
+
+General fields:
+
+disasterType
+country
+region
+city
+latitude
+longitude
+observationTime
+temperatureC
+rainfallMm
+humidityPercent
+windSpeedKmh
+populationDensity
+infrastructureCondition
+recentObservations
+additionalNotes
+
+Implement disaster-specific fields as defined above.
+
+The form must provide:
+
+- Labels
+- Helpful descriptions
+- Validation
+- Units
+- Required/optional indication
+- Accessible error messages
+- Responsive layout
+- Input constraints
+
+The result must include:
+
+1. Risk level
+2. Risk score
+3. Confidence
+4. Summary
+5. Risk factors
+6. Warning indicators
+7. Protective factors
+8. Immediate actions
+9. Preparedness actions
+10. Monitoring recommendations
+11. Evacuation guidance
+12. Official guidance
+13. Limitations
+
+============================================================
+10. DATABASE SCHEMA
+============================================================
+
+Use Supabase PostgreSQL.
+
+Create a migration containing:
+
+CREATE EXTENSION IF NOT EXISTS "pgcrypto";
+
+CREATE TABLE IF NOT EXISTS profiles (
+    id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
+    full_name TEXT,
+    avatar_url TEXT,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS predictions (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+
+    user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+
+    disaster_type TEXT NOT NULL,
+
+    country TEXT NOT NULL,
+    region TEXT,
+    city TEXT,
+
+    latitude DOUBLE PRECISION,
+    longitude DOUBLE PRECISION,
+
+    observation_time TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+
+    input_data JSONB NOT NULL DEFAULT '{}'::jsonb,
+
+    risk_level TEXT NOT NULL
+        CHECK (
+            risk_level IN (
+                'LOW',
+                'MODERATE',
+                'HIGH',
+                'VERY_HIGH',
+                'UNKNOWN'
+            )
+        ),
+
+    risk_score NUMERIC(5,2)
+        CHECK (risk_score >= 0 AND risk_score <= 100),
+
+    confidence_score NUMERIC(5,2)
+        CHECK (confidence_score >= 0 AND confidence_score <= 100),
+
+    confidence_level TEXT
+        CHECK (
+            confidence_level IN (
+                'LOW',
+                'MEDIUM',
+                'HIGH'
+            )
+        ),
+
+    summary TEXT NOT NULL,
+
+    risk_factors JSONB NOT NULL DEFAULT '[]'::jsonb,
+
+    warning_indicators JSONB NOT NULL DEFAULT '[]'::jsonb,
+
+    protective_factors JSONB NOT NULL DEFAULT '[]'::jsonb,
+
+    immediate_actions JSONB NOT NULL DEFAULT '[]'::jsonb,
+
+    preparedness_actions JSONB NOT NULL DEFAULT '[]'::jsonb,
+
+    monitoring_recommendations JSONB NOT NULL DEFAULT '[]'::jsonb,
+
+    evacuation_guidance TEXT,
+
+    official_guidance TEXT,
+
+    limitations JSONB NOT NULL DEFAULT '[]'::jsonb,
+
+    ai_model TEXT,
+
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_predictions_user_id
+ON predictions(user_id);
+
+CREATE INDEX IF NOT EXISTS idx_predictions_created_at
+ON predictions(created_at DESC);
+
+CREATE INDEX IF NOT EXISTS idx_predictions_disaster_type
+ON predictions(disaster_type);
+
+CREATE INDEX IF NOT EXISTS idx_predictions_risk_level
+ON predictions(risk_level);
+
+CREATE INDEX IF NOT EXISTS idx_predictions_location
+ON predictions(country, region, city);
+
+CREATE OR REPLACE FUNCTION handle_updated_at()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.updated_at = NOW();
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS profiles_updated_at ON profiles;
+
+CREATE TRIGGER profiles_updated_at
+BEFORE UPDATE ON profiles
+FOR EACH ROW
+EXECUTE FUNCTION handle_updated_at();
+
+DROP TRIGGER IF EXISTS predictions_updated_at ON predictions;
+
+CREATE TRIGGER predictions_updated_at
+BEFORE UPDATE ON predictions
+FOR EACH ROW
+EXECUTE FUNCTION handle_updated_at();
+
+CREATE OR REPLACE FUNCTION handle_new_user()
+RETURNS TRIGGER AS $$
+BEGIN
+    INSERT INTO public.profiles (id, full_name)
+    VALUES (
+        NEW.id,
+        COALESCE(
+            NEW.raw_user_meta_data->>'full_name',
+            ''
+        )
+    )
+    ON CONFLICT (id) DO NOTHING;
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+DROP TRIGGER IF EXISTS on_auth_user_created ON auth.users;
+
+CREATE TRIGGER on_auth_user_created
+AFTER INSERT ON auth.users
+FOR EACH ROW
+EXECUTE FUNCTION handle_new_user();
+
+============================================================
+11. ROW LEVEL SECURITY / DATA ISOLATION
+============================================================
+
+Enable RLS:
+
+ALTER TABLE profiles ENABLE ROW LEVEL SECURITY;
+ALTER TABLE predictions ENABLE ROW LEVEL SECURITY;
+
+Create policies:
+
+DROP POLICY IF EXISTS "Users can view own profile"
+ON profiles;
+
+CREATE POLICY "Users can view own profile"
+ON profiles
+FOR SELECT
+USING (auth.uid() = id);
+
+DROP POLICY IF EXISTS "Users can update own profile"
+ON profiles;
+
+CREATE POLICY "Users can update own profile"
+ON profiles
+FOR UPDATE
+USING (auth.uid() = id)
+WITH CHECK (auth.uid() = id);
+
+DROP POLICY IF EXISTS "Users can view own predictions"
+ON predictions;
+
+CREATE POLICY "Users can view own predictions"
+ON predictions
+FOR SELECT
+USING (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS "Users can insert own predictions"
+ON predictions;
+
+CREATE POLICY "Users can insert own predictions"
+ON predictions
+FOR INSERT
+WITH CHECK (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS "Users can delete own predictions"
+ON predictions;
+
+CREATE POLICY "Users can delete own predictions"
+ON predictions
+FOR DELETE
+USING (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS "Users can update own predictions"
+ON predictions;
+
+CREATE POLICY "Users can update own predictions"
+ON predictions
+FOR UPDATE
+USING (auth.uid() = user_id)
+WITH CHECK (auth.uid() = user_id);
+
+CRITICAL:
+
+Never trust user_id from the frontend.
+
+Derive the authenticated user from the verified Supabase authentication context.
+
+A user must never:
+
+- Read another user's prediction.
+- Modify another user's prediction.
+- Delete another user's prediction.
+- Insert a prediction under another user's identity.
+
+Use both backend authorization and PostgreSQL RLS.
+
+============================================================
+12. BACKEND API ROUTES
+============================================================
+
+Implement:
+
+GET /api/health
+
+Response:
+
+{
+  "status": "ok"
+}
+
+GET /api/profile
+
+Returns authenticated user's profile.
+
+PATCH /api/profile
+
+Updates allowed profile fields.
+
+POST /api/predictions
+
+Creates a new AI-assisted assessment.
+
+Example request:
+
+{
+  "disasterType": "earthquake",
+  "country": "India",
+  "region": "Maharashtra",
+  "city": "Pune",
+  "latitude": 18.5204,
+  "longitude": 73.8567,
+  "observationTime": "2026-09-29T10:00:00Z",
+  "inputData": {}
+}
+
+GET /api/predictions
+
+Returns authenticated user's assessments.
+
+Support:
+
+?page=1
+?limit=20
+?disasterType=earthquake
+?riskLevel=HIGH
+
+GET /api/predictions/:id
+
+Returns only an assessment owned by authenticated user.
+
+DELETE /api/predictions/:id
+
+Deletes only an assessment owned by authenticated user.
+
+GET /api/dashboard/stats
+
+Return:
+
+{
+  "totalPredictions": 0,
+  "highRiskPredictions": 0,
+  "mostAnalyzedDisaster": null,
+  "recentPredictions": 0
+}
+
+Use consistent response structures.
+
+SUCCESS:
+
+{
+  "success": true,
+  "data": {}
+}
+
+ERROR:
+
+{
+  "success": false,
+  "error": {
+    "code": "VALIDATION_ERROR",
+    "message": "Human-readable message",
+    "details": []
+  }
+}
+
+Every protected endpoint must:
+
+1. Verify authentication.
+2. Determine authenticated user.
+3. Validate input.
+4. Authorize access.
+5. Execute business logic.
+6. Return safe JSON.
+7. Handle errors.
+
+============================================================
+13. GEMINI SDK SETUP & SERVER-SIDE SECURITY
+============================================================
+
+Install and use:
+
+@google/genai
+
+Initialize Gemini ONLY on the backend.
+
+Example:
+
+import { GoogleGenAI } from "@google/genai";
+
+const ai = new GoogleGenAI({
+    apiKey: process.env.GEMINI_API_KEY
+});
+
+The model must come from:
+
+process.env.GEMINI_MODEL
+
+Never expose:
+
+GEMINI_API_KEY
+
+to React.
+
+Never put it in:
+
+- VITE_ variables
+- HTML
+- Client JavaScript
+- Browser network requests
+- Git
+- Public configuration
+
+The frontend must call:
+
+POST /api/predictions
+
+The backend calls Gemini.
+
+Implement:
+
+- Timeout handling
+- Provider error handling
+- Controlled retries where appropriate
+- Response validation
+- Input-size limitations
+- Rate limiting
+- Safe logging
+
+Never blindly trust Gemini output.
+
+Gemini output MUST be validated by Zod before database insertion.
+
+If Gemini returns malformed JSON:
+
+1. Parse safely.
+2. Validate.
+3. Reject invalid output.
+4. Return controlled server error.
+5. Do not save malformed output.
+
+Never expose raw Gemini errors.
+
+============================================================
+14. AI SYSTEM PROMPT
+============================================================
+
+Use the following system prompt for Gemini:
+
+"You are an AI-assisted natural disaster risk assessment and safety advisory engine.
+
+Your purpose is to analyze structured user-provided environmental, geographical, and situational information and produce a cautious, evidence-aware risk assessment.
+
+You are NOT an official emergency-management authority.
+
+You do NOT have guaranteed access to real-time sensor networks, government emergency systems, weather radar, seismic monitoring networks, satellite feeds, or local emergency dispatch systems unless such information is explicitly supplied.
+
+You must never claim that you independently detected a disaster.
+
+You must never guarantee that a disaster will or will not happen.
+
+You must never fabricate missing measurements.
+
+If information is insufficient, say so.
+
+Clearly distinguish:
+
+- Supplied observations
+- Inferences
+- Risk assessment
+- Safety recommendations
+
+Never invent:
+
+- Government alerts
+- Evacuation orders
+- Weather warnings
+- Sensor readings
+- Seismic measurements
+- Official forecasts
+- Emergency instructions
+
+If official instructions are supplied in the input, prioritize them.
+
+If there is no official instruction, tell the user to follow their local authorities.
+
+Risk level definitions:
+
+LOW:
+Limited indicators of elevated risk based on supplied information.
+
+MODERATE:
+Some indicators suggest increased concern, but evidence is incomplete or mixed.
+
+HIGH:
+Multiple meaningful indicators suggest elevated concern.
+
+VERY_HIGH:
+Strong indicators suggest significant potential danger based on supplied information.
+
+UNKNOWN:
+Insufficient information to make a meaningful assessment.
+
+The risk score is an assessment score, not a scientifically calibrated probability.
+
+The confidence score represents confidence in the assessment given the supplied information.
+
+Missing critical information must reduce confidence.
+
+Never use false certainty.
+
+Always include limitations.
+
+Always emphasize that active emergencies require following official authorities."
+
+============================================================
+15. DETAILED AI PROMPT & JSON SCHEMA
+============================================================
+
+Send Gemini structured input:
+
+{
+  "disasterType": "...",
+  "location": {
+    "country": "...",
+    "region": "...",
+    "city": "...",
+    "latitude": null,
+    "longitude": null
+  },
+  "observationTime": "...",
+  "environmentalData": {},
+  "infrastructureData": {},
+  "populationData": {},
+  "observations": "...",
+  "additionalNotes": "..."
+}
+
+Require Gemini to return ONLY valid JSON.
+
+Required JSON structure:
+
+{
+  "riskLevel": "LOW | MODERATE | HIGH | VERY_HIGH | UNKNOWN",
+  "riskScore": 0,
+  "confidenceScore": 0,
+  "confidenceLevel": "LOW | MEDIUM | HIGH",
+  "summary": "string",
+  "riskFactors": [
+    {
+      "factor": "string",
+      "impact": "LOW | MODERATE | HIGH",
+      "explanation": "string"
+    }
+  ],
+  "warningIndicators": [
+    "string"
+  ],
+  "protectiveFactors": [
+    "string"
+  ],
+  "immediateActions": [
+    "string"
+  ],
+  "preparednessActions": [
+    "string"
+  ],
+  "monitoringRecommendations": [
+    "string"
+  ],
+  "evacuationGuidance": "string",
+  "officialGuidance": "string",
+  "limitations": [
+    "string"
+  ]
+}
+
+Rules:
+
+riskScore must be 0-100.
+
+confidenceScore must be 0-100.
+
+Risk score is NOT probability.
+
+Confidence is NOT probability.
+
+Risk factors must be based on supplied data.
+
+Do not invent unavailable information.
+
+If information is insufficient:
+
+riskLevel = UNKNOWN
+
+confidence should generally be LOW
+
+limitations must explain the missing information.
+
+Do not fabricate official warnings.
+
+Do not fabricate evacuation orders.
+
+Do not provide medical diagnoses.
+
+Do not tell users to ignore official authorities.
+
+============================================================
+16. ZOD VALIDATION
+============================================================
+
+Create reusable Zod schemas.
+
+Required:
+
+- DisasterTypeSchema
+- LocationSchema
+- PredictionInputSchema
+- PredictionResponseSchema
+- RiskFactorSchema
+- DashboardQuerySchema
+- DashboardStatsSchema
+- ProfileSchema
+- UUIDSchema
+
+DisasterTypeSchema:
+
+z.enum([
+  "earthquake",
+  "flood",
+  "cyclone",
+  "landslide",
+  "wildfire",
+  "drought",
+  "tsunami",
+  "volcanic_eruption",
+  "extreme_heat",
+  "severe_storm",
+  "avalanche",
+  "other"
+])
+
+Validate all:
+
+- Request body
+- Query parameters
+- Path parameters
+- User-provided strings
+- Coordinates
+- Numeric values
+- Gemini output
+- Database-bound values
+
+Constraints:
+
+Latitude:
+-90 to 90
+
+Longitude:
+-180 to 180
+
+Humidity:
+0 to 100
+
+Wind:
+>= 0
+
+Risk score:
+0 to 100
+
+Confidence:
+0 to 100
+
+All strings must have sensible maximum lengths.
+
+Trim input.
+
+Reject malformed data.
+
+Never rely only on frontend validation.
+
+============================================================
+17. FRONTEND COMPONENTS
+============================================================
+
+Create reusable components.
+
+LAYOUT:
+
+- AppLayout
+- Navbar
+- Sidebar
+- Footer
+- ProtectedRoute
+
+AUTH:
+
+- LoginForm
+- RegisterForm
+- AuthGuard
+
+DASHBOARD:
+
+- DashboardHeader
+- StatsCard
+- RecentPredictions
+- RiskOverview
+- QuickActionCard
+
+PREDICTION:
+
+- PredictionForm
+- DisasterTypeSelector
+- LocationFields
+- EnvironmentalFields
+- DisasterSpecificFields
+- PredictionSubmitButton
+- PredictionLoadingState
+
+RESULT:
+
+- PredictionResult
+- RiskBadge
+- RiskScoreCard
+- ConfidenceCard
+- RiskFactorsList
+- WarningIndicators
+- ProtectiveFactors
+- ImmediateActions
+- PreparednessActions
+- MonitoringRecommendations
+- EvacuationGuidance
+- OfficialGuidance
+- LimitationsCard
+
+HISTORY:
+
+- PredictionHistory
+- PredictionHistoryItem
+- HistoryFilters
+- EmptyHistoryState
+- DeletePredictionDialog
+
+COMMON:
+
+- Button
+- Input
+- Select
+- Textarea
+- Card
+- Modal
+- Alert
+- Badge
+- Skeleton
+- Spinner
+- ErrorMessage
+- EmptyState
+- Toast
+
+Accessibility:
+
+Do not communicate risk using color alone.
+
+Example:
+
+[HIGH RISK]
+
+instead of only using red.
+
+Use:
+
+- Text
+- Icons
+- Labels
+- Accessible ARIA attributes where appropriate
+- Keyboard navigation
+- Focus indicators
+- Semantic HTML
+
+============================================================
+18. SECURITY REQUIREMENTS
+============================================================
+
+AUTHENTICATION:
+
+Use Supabase Auth.
+
+Never manually store passwords.
+
+Never implement custom password authentication.
+
+AUTHORIZATION:
+
+Verify authentication server-side.
+
+Never trust frontend user_id.
+
+Use ownership checks.
+
+Use RLS.
+
+SECRETS:
+
+Never expose:
+
+- GEMINI_API_KEY
+- SUPABASE_SERVICE_ROLE_KEY
+- Database credentials
+- Private keys
+
+Never commit .env.
+
+Provide .env.example.
+
+INPUT:
+
+- Validate everything with Zod.
+- Enforce length limits.
+- Prevent SQL injection.
+- Avoid dangerous HTML.
+- Sanitize rendered user content.
+
+API:
+
+Implement:
+
+- Rate limiting
+- CORS
+- Security headers
+- Body-size limits
+- Centralized errors
+- Safe logging
+
+AI:
+
+Treat all user input as untrusted.
+
+Protect the AI system prompt from prompt injection.
+
+User input must NEVER be allowed to override:
+
+- System instructions
+- Safety rules
+- Output schema
+- Application rules
+
+Validate AI output before persistence.
+
+PRIVACY:
+
+Store only required information.
+
+Do not expose user records.
+
+DATABASE:
+
+Use RLS.
+
+Use least privilege.
+
+Do not use Supabase service-role key on frontend.
+
+ERRORS:
+
+Never expose:
+
+- Stack traces
+- API keys
+- Credentials
+- Internal paths
+- Raw provider errors
+
+============================================================
+19. ENVIRONMENT VARIABLES
+============================================================
+
+Create .env.example:
+
+# FRONTEND
+
+VITE_SUPABASE_URL=
+VITE_SUPABASE_ANON_KEY=
+
+# BACKEND
+
+PORT=5000
+NODE_ENV=development
+
+SUPABASE_URL=
+SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+
+GEMINI_API_KEY=
+GEMINI_MODEL=
+
+FRONTEND_URL=http://localhost:5173
+
+CORS_ORIGIN=http://localhost:5173
+
+RATE_LIMIT_WINDOW_MS=900000
+RATE_LIMIT_MAX_REQUESTS=100
+
+IMPORTANT:
+
+Never commit real credentials.
+
+Frontend variables must use VITE_ only where appropriate.
+
+Backend secrets must never be bundled into frontend code.
+
+============================================================
+20. SUGGESTED FOLDER STRUCTURE
+============================================================
+
+Use this architecture unless the existing repository has a better compatible structure:
+
+natural-disaster-prediction/
+│
+├── client/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── auth/
+│   │   │   ├── dashboard/
+│   │   │   ├── prediction/
+│   │   │   ├── result/
+│   │   │   ├── history/
+│   │   │   └── common/
+│   │   │
+│   │   ├── pages/
+│   │   ├── hooks/
+│   │   ├── lib/
+│   │   │   ├── supabase.js
+│   │   │   └── api.js
+│   │   ├── schemas/
+│   │   ├── context/
+│   │   ├── utils/
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   │
+│   ├── package.json
+│   └── vite.config.js
+│
+├── server/
+│   ├── src/
+│   │   ├── config/
+│   │   ├── middleware/
+│   │   ├── routes/
+│   │   ├── controllers/
+│   │   ├── services/
+│   │   │   ├── gemini.service.js
+│   │   │   ├── prediction.service.js
+│   │   │   └── profile.service.js
+│   │   ├── schemas/
+│   │   ├── utils/
+│   │   ├── app.js
+│   │   └── server.js
+│   │
+│   └── package.json
+│
+├── supabase/
+│   ├── migrations/
+│   │   └── 001_initial_schema.sql
+│   └── seed.sql
+│
+├── .env.example
+├── .gitignore
+├── README.md
+└── package.json
+
+If using TypeScript already, use .ts/.tsx instead of converting unnecessarily.
+
+============================================================
+21. IMPLEMENTATION PHASES
+============================================================
+
+PHASE 1 — INSPECT PROJECT
+
+Before coding:
+
+- Inspect repository.
+- Identify framework.
+- Identify dependencies.
+- Identify frontend.
+- Identify backend.
+- Identify database.
+- Identify Supabase configuration.
+- Identify environment configuration.
+- Identify existing components.
+- Identify existing routes.
+
+Do not destroy useful existing work.
+
+PHASE 2 — FOUNDATION
+
+Implement:
+
+- Project configuration.
+- Tailwind.
+- Express.
+- API architecture.
+- Error handling.
+- Health endpoint.
+- Environment configuration.
+
+PHASE 3 — DATABASE
+
+Implement:
+
+- Supabase database.
+- Profiles.
+- Predictions.
+- Indexes.
+- Triggers.
+- RLS.
+
+PHASE 4 — AUTH
+
+Implement:
+
+- Registration.
+- Login.
+- Logout.
+- Session persistence.
+- Protected routes.
+- Profile.
+
+PHASE 5 — UI
+
+Implement:
+
+- Landing page.
+- Navbar.
+- Dashboard.
+- Prediction page.
+- History.
+- Profile.
+- Settings.
+- Safety page.
+- About page.
+
+PHASE 6 — PREDICTION ENGINE
+
+Implement:
+
+- Dynamic form.
+- Zod validation.
+- API endpoint.
+- Gemini service.
+- Structured JSON.
+- Gemini output validation.
+
+PHASE 7 — STORAGE
+
+Implement:
+
+- Prediction persistence.
+- History.
+- Filtering.
+- Pagination.
+- Deletion.
+- Authorization.
+
+PHASE 8 — RESULTS
+
+Implement:
+
+- Risk score.
+- Risk level.
+- Confidence.
+- Risk factors.
+- Warning indicators.
+- Protective factors.
+- Immediate actions.
+- Preparedness.
+- Monitoring.
+- Evacuation guidance.
+- Official guidance.
+- Limitations.
+
+PHASE 9 — DASHBOARD
+
+Implement:
+
+- Statistics.
+- Recent records.
+- Risk overview.
+- Quick actions.
+
+PHASE 10 — SECURITY
+
+Implement:
+
+- RLS.
+- Authorization.
+- Rate limiting.
+- CORS.
+- Security headers.
+- Input validation.
+- Error sanitization.
+- Secret protection.
+
+PHASE 11 — TESTING
+
+Test:
+
+- Registration.
+- Login.
+- Logout.
+- Protected routes.
+- Invalid credentials.
+- Prediction submission.
+- Invalid input.
+- Gemini failure.
+- Invalid Gemini output.
+- Database failure.
+- Unauthorized access.
+- Cross-user access.
+- Prediction deletion.
+- Empty history.
+- Mobile UI.
+
+PHASE 12 — POLISH
+
+Improve:
+
+- Responsive design.
+- Loading states.
+- Error states.
+- Empty states.
+- Accessibility.
+- Animations.
+- Typography.
+- Spacing.
+- Navigation.
+- Visual hierarchy.
+
+PHASE 13 — PRODUCTION AUDIT
+
+Check:
+
+- No secrets.
+- No TODOs.
+- No fake functionality.
+- No broken links.
+- No console errors.
+- No broken routes.
+- No unauthorized data access.
+- No unhandled promises.
+- No malformed API responses.
+- No placeholder pages.
+
+PHASE 14 — DOCUMENTATION
+
+Create README with:
+
+- Overview
+- Features
+- Architecture
+- Requirements
+- Installation
+- Environment variables
+- Supabase setup
+- Database migration
+- Gemini setup
+- Local development
+- Production build
+- Deployment
+- Security
+- AI limitations
+
+============================================================
+22. ACCEPTANCE CRITERIA
+============================================================
+
+The project is NOT complete until every applicable requirement below works.
+
+FUNCTIONAL:
+
+[ ] Landing page works.
+[ ] Login works.
+[ ] Registration works.
+[ ] Logout works.
+[ ] Session persistence works.
+[ ] Protected routes work.
+[ ] Dashboard works.
+[ ] Prediction form works.
+[ ] Dynamic disaster fields work.
+[ ] Backend validation works.
+[ ] Gemini integration works.
+[ ] Gemini output validation works.
+[ ] Predictions are stored.
+[ ] Prediction history works.
+[ ] Prediction details work.
+[ ] Prediction deletion works.
+[ ] Dashboard statistics work.
+[ ] Profile works.
+
+DATABASE:
+
+[ ] PostgreSQL schema works.
+[ ] Foreign keys work.
+[ ] Indexes exist.
+[ ] Triggers work.
+[ ] RLS enabled.
+[ ] RLS policies work.
+[ ] Cross-user access is prevented.
+
+AI:
+
+[ ] Gemini only runs server-side.
+[ ] API key is protected.
+[ ] Structured output is used.
+[ ] AI output is validated.
+[ ] Missing data is handled honestly.
+[ ] No guaranteed prediction claims.
+[ ] Safety limitations included.
+[ ] No fabricated official alerts.
+
+SECURITY:
+
+[ ] Secrets are protected.
+[ ] .env.example exists.
+[ ] Authentication verified.
+[ ] Authorization enforced.
+[ ] User ID cannot be spoofed.
+[ ] Zod validation exists.
+[ ] Rate limiting exists.
+[ ] CORS configured.
+[ ] Security headers configured.
+[ ] Errors sanitized.
+[ ] RLS enabled.
+
+UX:
+
+[ ] Desktop responsive.
+[ ] Tablet responsive.
+[ ] Mobile responsive.
+[ ] Loading states.
+[ ] Error states.
+[ ] Empty states.
+[ ] Accessible forms.
+[ ] Keyboard navigation.
+[ ] Clear risk labels.
+[ ] Color is not the only risk indicator.
+
+QUALITY:
+
+[ ] No obvious console errors.
+[ ] No broken routes.
+[ ] No dead buttons.
+[ ] No fake production functionality.
+[ ] No required TODOs.
+[ ] No hardcoded API secrets.
+[ ] Production build succeeds.
+
+SAFETY:
+
+[ ] Emergency disclaimer displayed.
+[ ] Official authorities prioritized.
+[ ] AI assessment distinguished from official warnings.
+[ ] No disaster guarantees.
+[ ] No fabricated real-time data.
+[ ] Uncertainty communicated.
+
+DOCUMENTATION:
+
+[ ] README complete.
+[ ] Environment variables documented.
+[ ] Supabase setup documented.
+[ ] Database setup documented.
+[ ] Gemini setup documented.
+[ ] Deployment instructions included.
+
+============================================================
+23. FINAL INSTRUCTION TO CODING AGENT
+============================================================
+
+START BUILDING THE APPLICATION NOW.
+
+Do NOT stop after creating a plan.
+
+Do NOT merely explain the implementation.
+
+Actually inspect the repository and implement the complete application.
+
+Follow every requirement in this prompt.
+
+When an existing implementation is found:
+
+1. Inspect it.
+2. Reuse it where appropriate.
+3. Modify it safely.
+4. Avoid unnecessary rewrites.
+
+When functionality is missing:
+
+1. Create the required files.
+2. Install dependencies.
+3. Configure them.
+4. Implement functionality.
+5. Test it.
+
+When an error occurs:
+
+1. Find the root cause.
+2. Fix it.
+3. Re-run the relevant test/build/check.
+4. Continue.
+
+Do not hide errors.
+
+Do not replace real functionality with mock functionality.
+
+Do not create fake Gemini responses for the real prediction workflow.
+
+Do not expose secrets.
+
+Do not skip:
+
+- Supabase Auth
+- PostgreSQL
+- RLS
+- Zod
+- Gemini
+- Backend authorization
+- Responsive UI
+- Error handling
+- Security
+- Testing
+
+Treat all user input as untrusted.
+
+Treat all AI output as untrusted until validated.
+
+Do not claim scientifically validated forecasting unless actual validated forecasting infrastructure exists.
+
+The final product must look and behave like a complete professional application, not a basic college-project mockup.
+
+Before declaring the project finished:
+
+1. Run the frontend build.
+2. Run the backend checks.
+3. Run tests where available.
+4. Check for TypeScript/JavaScript errors.
+5. Check for broken imports.
+6. Check API routes.
+7. Check authentication.
+8. Check database operations.
+9. Check RLS behavior.
+10. Check Gemini integration.
+11. Check responsive UI.
+12. Check console errors.
+13. Check security configuration.
+14. Compare implementation against EVERY acceptance criterion.
+15. Fix every issue found.
+
+Do not claim completion unless the implementation actually satisfies the requirements.
+
+At the end, provide a concise implementation report containing:
+
+1. What was implemented.
+2. Main technologies used.
+3. Database setup status.
+4. Gemini integration status.
+5. Authentication status.
+6. Security measures implemented.
+7. Tests/checks performed.
+8. Required environment variables.
+9. Local run instructions.
+10. Any genuinely unavoidable limitations.
+
+IMPORTANT FINAL SAFETY REQUIREMENT:
+
+The application must clearly communicate that it provides AI-assisted risk assessment and advisory information, not guaranteed disaster prediction or official emergency alerts.
+
+For active emergencies, users must be directed to follow official local emergency authorities and emergency services.
+
+NOW BEGIN IMPLEMENTATION.

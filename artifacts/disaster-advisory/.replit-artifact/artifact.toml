@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Natural Disaster Advisory System"
+description = "A safety-first AI-assisted disaster risk assessment app that helps authenticated users organize observations, understand uncertainty, and access immediate preparedness guidance without replacing official emergency authorities."
+version = "1.0.0"
+id = "artifacts/disaster-advisory"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21545
+
+[services.development]
+run = "pnpm --filter @workspace/disaster-advisory run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/disaster-advisory", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/disaster-advisory/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21545"
+BASE_PATH = "/"
